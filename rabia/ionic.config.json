@@ -1,0 +1,8 @@
+{
+  "name": "rabia",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

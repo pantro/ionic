@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Formulario</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <form #surveyForm="ngForm">
+      <ion-item>
+        <ion-label floating color="primary">Latitud</ion-label>
+        <ion-input
+          [(ngModel)]="survey.latitud"
+          name="latitud"
+          #latitud="ngModel"
+          autocapitalize="off"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <p [hidden]="latitud.valid || !submited" padding-left>
+        El longitud es requerido
+      </p>
+
+      <ion-item>
+        <ion-label floating color="primary">Longitud</ion-label>
+        <ion-input
+          [(ngModel)]="survey.longitud"
+          name="longitud"
+          #longitud="ngModel"
+          autocapitalize="off"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <p [hidden]="longitud.valid || !submited" padding-left>
+        El longitud es requerido
+      </p>
+
+      <ion-item>
+        <ion-label floating color="primary">Precisión</ion-label>
+        <ion-input
+          [(ngModel)]="survey.precision"
+          name="precision"
+          #precision="ngModel"
+          autocapitalize="off"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <p [hidden]="precision.valid || !submited" padding-left>
+        El precision es requerido
+      </p>
+
+      <ion-row responsive-sm>
+        <ion-col>
+          <button
+            ion-button
+            (click)="onSurvey(surveyForm)"
+            type="submit"
+            block
+          >
+            Guardar
+          </button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <ion-fab right top>
+      <button 
+        ion-fab 
+        (click)="getGPS()">
+        <ion-icon name="pin"></ion-icon>
+      </button>
+    </ion-fab>
+  </ion-list>
+</ion-content>
