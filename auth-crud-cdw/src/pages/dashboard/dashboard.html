@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>DashboardPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list *ngIf="users && users.length > 0">
+    <ion-item-sliding *ngFor="let user of users">
+
+      <ion-item>
+        <ion-icon name="person"></ion-icon> {{ user.username }}
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="detail(user)">Detalle</button>
+        <button ion-button (click)="edit(user)">Editar</button>
+        <button ion-button color="danger" (click)="remove(user)">Eliminar</button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button ion-fab (click)="add()" mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <p *ngIf="users && users.length == 0" color="danger">
+    No hay usuarios disponibles
+  </p>
+
+</ion-content>
